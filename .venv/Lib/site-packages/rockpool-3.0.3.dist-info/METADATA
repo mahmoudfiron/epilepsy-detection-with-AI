@@ -1,0 +1,145 @@
+Metadata-Version: 2.4
+Name: rockpool
+Version: 3.0.3
+Summary: A Python package for developing, simulating and training spiking neural networks, and deploying on neuromorphic hardware
+Author: SynSense
+Author-email: dylan.muir@synsense.ai
+Project-URL: Source Code, https://github.com/SynSense/rockpool
+Project-URL: Documentation, https://rockpool.ai
+Project-URL: Bug Tracker, https://github.com/SynSense/rockpool/issues
+Keywords: spiking neural network SNN neuromorphic machine learning ML
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Provides-Extra: numba
+Requires-Dist: numba; extra == "numba"
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: nbsphinx; extra == "docs"
+Requires-Dist: sphinx-autobuild; extra == "docs"
+Requires-Dist: sphinx-rtd-theme; extra == "docs"
+Requires-Dist: recommonmark; extra == "docs"
+Requires-Dist: pandoc; extra == "docs"
+Provides-Extra: tests
+Requires-Dist: pytest>=6.0; extra == "tests"
+Requires-Dist: pytest-xdist>=3.2.1; extra == "tests"
+Requires-Dist: pytest-random-order>=1.1.0; extra == "tests"
+Requires-Dist: pytest-test-groups; extra == "tests"
+Provides-Extra: torch
+Requires-Dist: torch; extra == "torch"
+Requires-Dist: torchvision; extra == "torch"
+Provides-Extra: jax
+Requires-Dist: jax>=0.4.28; extra == "jax"
+Requires-Dist: jaxlib>=0.4.28; extra == "jax"
+Provides-Extra: xylo
+Requires-Dist: xylosim; extra == "xylo"
+Requires-Dist: samna>=0.46.1; extra == "xylo"
+Requires-Dist: bitstruct; extra == "xylo"
+Provides-Extra: exodus
+Requires-Dist: torch; extra == "exodus"
+Requires-Dist: sinabs>=1.0; extra == "exodus"
+Requires-Dist: sinabs-exodus; extra == "exodus"
+Provides-Extra: brian
+Requires-Dist: brian2; extra == "brian"
+Provides-Extra: sinabs
+Requires-Dist: sinabs>=1.0; extra == "sinabs"
+Provides-Extra: dynapse
+Requires-Dist: rockpool[jax]; extra == "dynapse"
+Requires-Dist: samna>=0.32.1.0; extra == "dynapse"
+Provides-Extra: nir
+Requires-Dist: nir<=1.0.4; extra == "nir"
+Requires-Dist: nirtorch; extra == "nir"
+Provides-Extra: extras
+Requires-Dist: matplotlib; extra == "extras"
+Requires-Dist: tqdm; extra == "extras"
+Requires-Dist: rich; extra == "extras"
+Provides-Extra: all
+Requires-Dist: rockpool[brian,docs,dynapse,extras,jax,nir,numba,sinabs,tests,torch,xylo]; extra == "all"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Rockpool
+
+![PyPI - Package](https://img.shields.io/pypi/v/rockpool) ![Conda](https://img.shields.io/conda/v/conda-forge/rockpool) [![Documentation Status](https://img.shields.io/badge/docs-ok-green)](https://rockpool.ai) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rockpool?logo=python) ![Black - formatter](https://img.shields.io/badge/code_style-black-black)[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3773845.svg)](https://doi.org/10.5281/zenodo.3773845)
+
+![Noodle](https://rockpool.ai/_static/noodle-small.png)
+
+Rockpool is a Python package for developing signal processing applications with spiking neural networks. Rockpool allows you to build networks, simulate, train and test them, deploy them either in simulation or on event-driven neuromorphic compute hardware. Rockpool provides layers with a number of simulation backends, including Brian2, Torch, JAX, Numba and raw numpy. Rockpool is designed to make machine learning based on SNNs easier. It is not designed for detailed simulation of biological networks.
+
+# Documentation and getting started
+
+The best place to start with Rockpool is the [documentation](https://rockpool.ai), which contains tutorials and getting started guides.
+
+The documentation is hosted online: [https://rockpool.ai/](https://rockpool.ai/), or can be built and hosted locally with Sphinx. Much of the documentation is available as Jupyter notebooks, to be used interactively.
+
+# Installation instructions
+
+Use `pip` to install Rockpool and required dependencies
+
+```bash
+$ pip install rockpool --user
+```
+
+The `--user` option installs the package only for the current user.
+
+If you want to install all the extra dependencies required for Brian, PyTorch and Jax layers, use the command
+
+```bash
+$ pip install rockpool[all] --user
+```
+
+# License
+
+Rockpool is released under a AGPL license. Commercial licenses are available on request.
+
+# Contributing
+
+Fork the public repository at https://github.com/SynSense/rockpool, then clone your fork.
+
+```bash
+$ git clone https://github.com/your-fork-location/rockpool.git rockpool
+```
+
+Install the package in development mode using `pip`
+
+```bash
+$ cd rockpool
+$ pip install -e . --user
+```
+
+or
+
+```bash
+$ pip install -e .[all] --user
+```
+
+The main branch is `development`. You should commit your modifications to a new feature branch.
+
+```bash
+$ git checkout -b feature/my-feature develop
+...
+$ git commit -m 'This is a verbose commit message.'
+```
+
+Then push your new branch to your repository
+
+```bash
+$ git push -u origin feature/my-feature
+```
+
+When you're finished with your modifications, make a merge request on github.com, from your branch in your fork to https://github.com/SynSense/rockpool.

@@ -1,0 +1,18 @@
+# --------------------------
+# Config
+# --------------------------
+DATA_PATH = "Data/Training_Data_EEG_band_powers.csv"
+UNTOUCHED_CSV = "Data/Test_Data_EEG_band_powers.csv"
+
+INPUT_DIM = 6
+N_STEPS = 1000
+BATCH = 32
+EPOCHS = 15
+LR_BASE = 1e-3
+USE_TIME_WEIGHTS = True
+
+ARTIFACT_DIR = "artifacts_spiking_only_stable"
+HIDDEN_SIZES = [8, 8, 8]
+
+DT = 5e-4
+tau_lp = 0.02
